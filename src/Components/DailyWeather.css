@@ -1,0 +1,44 @@
+.dailyWeather {
+   
+    display: grid;
+    grid-template-columns: 100px;
+    grid-template-rows: 20px 30px 40px 50px 30px;
+    width: 100px;
+    max-height: 150px;
+    min-height: 150px;
+    border: 1px solid black;
+   padding: 8px;
+   margin: 0px 0px 0px 5px;
+  
+}
+.dailyWeather:active, .dailyWeather:focus{
+    border: 2px solid blue;
+}
+.weekDay {
+    font-weight: bold;
+}
+
+.temp{
+    font-weight: bold;
+    top: 6;
+    display: flex;
+    
+    justify-content: space-between;
+    padding: 2px 2px 5px 5px;
+}
+.temper {
+    margin-top: -.5px;
+}
+
+.weatherIcon{
+    width: 25px;
+    margin-top: 10px;
+}
+.weather {
+  font-size: inherit;
+  text-align: center;
+  word-wrap: break-word;
+  border: 1px solid black;
+  overflow-wrap: break-word;
+ min-height: 30px;
+}

@@ -35,3 +35,13 @@
     outline: 2px solid black;
 }
 
+.weatherCard{
+    margin-top: 15px;
+    display: flex;
+    overflow-x: scroll;
+    min-height:150px ;
+    white-space: nowrap;
+    padding: 5px;
+    border: 1px solid black;
+}
+

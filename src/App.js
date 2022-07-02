@@ -30,11 +30,11 @@ function App() {
             GOOGLE_MAP_KEY)
     .then(
       function success (response) {
-        console.log('User\'s Address Data is ', response)
+        //console.log('User\'s Address Data is ', response)
       },
       function fail (status) {
-        console.log('Request failed.  Returned status of',
-                    status)
+        //console.log('Request failed.  Returned status of',
+         //           status)
       }
      )
   }

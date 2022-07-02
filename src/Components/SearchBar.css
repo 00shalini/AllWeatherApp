@@ -36,23 +36,28 @@
 }
 
 .weatherCard{
-    margin-top: 15px;
+    margin-top: -140px;
     display: flex;
     overflow-x: scroll;
     min-height:150px ;
     white-space: nowrap;
     padding: 5px;
-   
+    position: fixed;
+    z-index: -2;
 }
 
 .chart {
 max-width: 330px;
-   margin-top: 40px; 
+  margin-top: 30px;
+   z-index: -1;
+   position: fixed;
+   margin-left: -167px;
 }
 .presshum {
     display: flex;
     justify-content: space-evenly;
-    margin-top: 10px;
+    margin-top: 220px;
+   position: fixed;
    
 }
 
@@ -62,8 +67,22 @@ max-width: 330px;
     min-height: 40px;
     text-align: center;
     padding-top: 15px;
+    
+    margin-left: 10px;
 }
 
 .sunset {
     max-height: 200px;
+    position: fixed;
+    margin-top: 300px;
+    margin-left: -120px;
+}
+
+.searchdata{
+    border: 1px solid black;
+    min-height: 30px;
+    z-index: 1;
+    text-align: left;
+    font-size: 14px;
+    background-color: aliceblue;
 }

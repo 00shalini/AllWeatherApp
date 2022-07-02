@@ -42,6 +42,28 @@
     min-height:150px ;
     white-space: nowrap;
     padding: 5px;
-    border: 1px solid black;
+   
 }
 
+.chart {
+max-width: 330px;
+   margin-top: 40px; 
+}
+.presshum {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+   
+}
+
+.block {
+    background-color: rgb(197, 248, 248);
+    width: 150px;
+    min-height: 40px;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.sunset {
+    max-height: 200px;
+}

@@ -4,16 +4,21 @@ import map from '../Components/Images/map.png';
 import search from '../Components/Images/search.png';
 import axios from 'axios';
 import DailyWeather from "./DailyWeather";
-
+import chart from '../Components/Images/chart.png';
+import riseset from '../Components/Images/riseset.png';
 
 const SearchBar = () => {
 
-   const apiKey = "njP35ATXQiw53GM6G6lLUUci7pppyyt9";
+   const apiKey = "4fTLoR7yhYoQWw34krsNg52WntGbgTgQ";
+   
+ 
    
    const [weatherData, setWeatherData] = useState();
    const [data, setData] = useState();
    const [city, setCity] = useState("");
    const [dailyData, setDailyData] = useState([]);
+   
+
 
 
    const getWeatherDetails = (city) => {
@@ -51,6 +56,17 @@ const SearchBar = () => {
         console.log(error);
     })
    }
+
+//    const getHourlyWeatherData = (Key) => {
+//      const apiUrl = `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${Key}?apikey=${apiKey}`;
+//          axios.get(apiUrl)
+//          .then((res) => {
+//         console.log(res.data)
+//         setHourlyData(res.data)
+//          }).catch((error) => {
+//             console.log(error)
+//          })
+//         }
 
  const handleChange = (e) => {
     e.preventDefault();
@@ -94,7 +110,7 @@ const SearchBar = () => {
             <img src={search} alt="search" className="search"/>
             
             <input type="text" value={city} onChange={handleChange} className="inputlocation" onKeyDown={handleKeyDown}/>
-            {/* {console.log(dailyData)} */}
+            {console.log(weatherData)}
             <div className="weatherCard">
             {dailyData?.DailyForecasts?.map((item) => {
                // console.log(item.Date)
@@ -103,9 +119,12 @@ const SearchBar = () => {
             }
                 
                 </div>
-           
-            {/* <p>{data?.name} </p>
-            <p>{((data?.main.temp)-273.15).toFixed(2)} °C</p> */}
+                <img src={chart}  className="chart"/> 
+                <div className="presshum">
+                    <div className="block">Pressure 999hpa</div>
+                    <div className="block">Humidity 79%</div>
+                </div>   
+                <img src={riseset} alt="sunrise sunset" className="sunset"/>
         </div>
     )
 }

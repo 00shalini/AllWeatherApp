@@ -40,8 +40,8 @@
 .weather {
   font-size: inherit;
   text-align: center;
-  word-wrap: break-word;
-  
+  overflow-wrap: break-word;
+  inline-size: 100px;
   overflow-wrap: break-word;
  min-height: 30px;
 }

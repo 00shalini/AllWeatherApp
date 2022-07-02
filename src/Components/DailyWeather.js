@@ -5,7 +5,7 @@ import partlysunny from '../Components/Images/partlysunny.png';
 import rainy from '../Components/Images/rainy.png';
 import sunny from '../Components/Images/sunny.png';
 import '../Components/DailyWeather.css';
-import chart from '../Components/Images/chart.png';
+
 
 
 const DailyWeather = ({dailyData,date}) => {

@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react";
+import React, { useState } from "react";
 import "../Components/SearchBar.css"; 
 import map from '../Components/Images/map.png';
 import search from '../Components/Images/search.png';
@@ -9,7 +9,7 @@ import riseset from '../Components/Images/riseset.png';
 
 const SearchBar = () => {
 
-   const apiKey = "gbW2W4ig6rTSGwJt4jmCjdr8MU9J3Q5z";
+   const apiKey = "m5Tl8HEa3hYMEev8L3tCHToEm8UC5mCb";
    
  
    
@@ -17,7 +17,8 @@ const SearchBar = () => {
    const [data, setData] = useState();
    const [city, setCity] = useState("");
    const [dailyData, setDailyData] = useState([]);
-   const [searchData, setSearchData] = useState([]);   
+   const [searchData, setSearchData] = useState([]); 
+   const [enterState ,setEnterState] = useState(false);  
 
 
 
@@ -59,6 +60,7 @@ const SearchBar = () => {
 
  const handleChange = (e) => {
     e.preventDefault();
+    setEnterState(false)
     axios.get(`http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${apiKey}&q=${city}`)
         .then((res) => {
            // console.log(res.data)
@@ -73,11 +75,10 @@ const SearchBar = () => {
    const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
         getWeatherDetails(city);
+        setEnterState(true);
         
       }
-      if ( e.key === 'Enter') {
-        document.getElementById("searcher").style.display = "none";
-      }
+    
    }
 
   
@@ -90,12 +91,12 @@ const SearchBar = () => {
             <img src={map} alt="location" className="location"/>
             <img src={search} alt="search" className="search"/>
             
-            <input type="text" value={city} onChange={handleChange} className="inputlocation" onKeyDown={handleKeyDown}/>
+            <input type="text" value={city} onChange={handleChange} className="inputlocation" onKeyDown={handleKeyDown} />
             {/* {console.log(weatherData)} */}
             {console.log(searchData)}
         {searchData && searchData.map((item,i) =>{
-            {console.log(item.LocalizedName)}
-          return <div key={i} className="searchdata" id="searcher">{item.LocalizedName}</div>
+            //  {console.log(searchData)}
+          return <div key={i} className="searchdata" id="searcher" onKeyDown={handleKeyDown} style={enterState == true ? {display:'none'}: null }>{item.LocalizedName},{item.Country.LocalizedName}</div>
         })}
             <div className="weatherCard">
             {dailyData?.DailyForecasts?.map((item) => {

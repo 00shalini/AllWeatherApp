@@ -70,21 +70,21 @@ const SearchBar = () => {
 
  const handleChange = (e) => {
     e.preventDefault();
-//     fetch(`${ApiUrl}/cities?namePrefix=${e.target.value}`, geoApioptions)
-//     .then((data) => {
-//      data.json().then((resp) => {
-//         //  return {
-//         //      options: resp.data.map((city) => {
-//         //          return {
-//         //              value: `${city.latitude} ${city.longitude}`,
-//         //              label: `${city.name} ${city.countryCode}`,
-//         //          };
-//         //      }),
-//         //  };
-//         console.log(resp.data)
+    axios.get(`http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${apiKey}&q=${city}`)
+    .then((res) => {
+    
+        //  return {
+        //      options: resp.data.map((city) => {
+        //          return {
+        //              value: `${city.latitude} ${city.longitude}`,
+        //              label: `${city.name} ${city.countryCode}`,
+        //          };
+        //      }),
+        //  };
+        console.log(res.data)
          
-//     }).catch(err => console.log(err));
-//  })
+    }).catch(err => console.log(err));
+ 
   
     setCity(e.target.value)
  
@@ -110,7 +110,7 @@ const SearchBar = () => {
             <img src={search} alt="search" className="search"/>
             
             <input type="text" value={city} onChange={handleChange} className="inputlocation" onKeyDown={handleKeyDown}/>
-            {console.log(weatherData)}
+            {/* {console.log(weatherData)} */}
             <div className="weatherCard">
             {dailyData?.DailyForecasts?.map((item) => {
                // console.log(item.Date)
